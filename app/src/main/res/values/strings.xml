@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Guessing Game</string>
+    <string name="play_button">Play</string>
+    <string name="ready_label">Ready to Play?</string>
+    <string name="input_hint">Enter your guess here</string>
+    <string name="submit_guess"> Submit</string>
+    <string name="prompt">The Magic Number is between 0-99</string>
+    <string name="restart_button">Restart</string>
+    <string name="invalid_input">Invalid Input</string>
+</resources>
