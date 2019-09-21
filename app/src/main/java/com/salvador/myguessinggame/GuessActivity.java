@@ -11,6 +11,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class GuessActivity extends AppCompatActivity {
+    private String result;
     private int random = new Random().nextInt(100);
 
     @Override
@@ -23,10 +24,9 @@ public class GuessActivity extends AppCompatActivity {
     }
 
     public void submitGuess(View view) {
-        String result;
         int guess = 0;
         // get guess
-        EditText guessText = (EditText)findViewById(R.id.editGuess);
+        EditText guessText = findViewById(R.id.editGuess);
         String guessString = guessText.getText().toString();
 
         try {
@@ -41,12 +41,6 @@ public class GuessActivity extends AppCompatActivity {
 
         if (guess == random) {
             result = "You guessed the magic number!!";
-
-            View restartView = (View)findViewById(R.id.restart_btn);
-            View submitView = (View)findViewById(R.id.submit_btn);
-
-            restartView.setVisibility(View.VISIBLE);
-            submitView.setVisibility(View.GONE);
         }
         else if (guess < random) {
             result = "Try a little higher...";
@@ -55,25 +49,24 @@ public class GuessActivity extends AppCompatActivity {
             result = "Try a little lower...";
         }
 
-        TextView resultText = (TextView)findViewById(R.id.guess_prompter);
-        resultText.setText(result);
+        setPrompter(result);
     }
 
     public void restartGuess (View view){
         random = new Random().nextInt(100);
 
-        View restartView = (View)findViewById(R.id.restart_btn);
-        View submitView = (View)findViewById(R.id.submit_btn);
-
-        restartView.setVisibility(View.GONE);
-        submitView.setVisibility(View.VISIBLE);
+        result = "New game started, guess the new number";
+        setPrompter(result);
     }
 
-
-
+    public void setPrompter (String text){
+        TextView resultText = findViewById(R.id.guess_prompter);
+        resultText.setText(text);
+    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("random",random);
     }
 
