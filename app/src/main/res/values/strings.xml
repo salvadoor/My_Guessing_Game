@@ -7,4 +7,8 @@
     <string name="prompt">The Magic Number is between 0 and 99</string>
     <string name="restart_button">Start New Game</string>
     <string name="invalid_input">Invalid Input</string>
+    <string name="range_prompt">Select a range: </string>
+    <string name="range_1">1-10</string>
+    <string name="range_2">1-100</string>
+    <string name="range_3">1-1000</string>
 </resources>

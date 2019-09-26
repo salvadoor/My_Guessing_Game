@@ -1,6 +1,8 @@
 package com.salvador.myguessinggame;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +14,20 @@ import java.util.Random;
 
 public class GuessActivity extends AppCompatActivity {
     private String result;
-    private int random = new Random().nextInt(100);
+    private int random;
+    public static final String EXTRA_RANGE = "range";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess);
+
+        Intent intent = getIntent();
+        int range = intent.getExtras().getInt(EXTRA_RANGE);
+        Toast.makeText(getApplicationContext(),Integer.toString(range),Toast.LENGTH_LONG).show();
+
+        random = new Random().nextInt(range);
+
         if (savedInstanceState != null) {
             random = savedInstanceState.getInt("random");
         }

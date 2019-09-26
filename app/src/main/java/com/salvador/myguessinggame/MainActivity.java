@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void startGame(View view) {
-        Intent intent = new Intent(this, GuessActivity.class);
+    public void startMenu(View view) {
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 }
