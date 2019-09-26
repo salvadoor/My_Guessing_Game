@@ -14,6 +14,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        // Hide Action Bar
+        getSupportActionBar().hide();
+
+        // Set onClickListeners for the three buttons
         Button one = (Button) findViewById(R.id.btn_one);
         one.setOnClickListener(this);
 
@@ -25,6 +29,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    // set range depending on the option that was clicked
+    // start GuessActivity and pass the range value
     @Override
     public void onClick(View view){
         int range = 1;
